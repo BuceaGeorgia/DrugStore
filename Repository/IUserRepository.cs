@@ -1,13 +1,9 @@
 ﻿using Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
-   public interface IUserRepository
+    public interface IUserRepository
     {
         List<User> getall();
         /*
@@ -36,7 +32,7 @@ namespace Repository
        * returns the deleted user or null of the operation was not sucessfull
        */
 
-        User delete(string user,string password);
+        User delete(string user, string password);
 
         /*string username
          * string password
@@ -49,7 +45,7 @@ namespace Repository
         */
 
 
-        User add(string username, string password, Status st,int section);
+        User add(string username, string password, Status st, int section);
 
         /*int id
          * string username

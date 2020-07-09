@@ -1,16 +1,13 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
     public interface IOrderRepository
     {
         //returns a list of orders  from database ordered by date
-        List< Order> getall();
+        List<Order> getall();
 
         /*DateTime dt, the date when the order was placed
         * int sectieId, the section that made the order
@@ -18,7 +15,7 @@ namespace Repository
         * Adds a new order to database and returns the order
         * 
         */
-        Order add(DateTime dt,int sectieId);
+        Order add(DateTime dt, int sectieId);
 
 
         /*int sectieid- a given section number

@@ -1,15 +1,10 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
-   public interface IItemRepository
+    public interface IItemRepository
 
-    {    
+    {
 
 
         /* int id - the id of the drug
@@ -18,6 +13,6 @@ namespace Repository
          * adds a new item to database and returns the inserted item or null if not succesful
          */
 
-        Item add(int drugid,int quantity,int orderid);
-}
+        Item add(int drugid, int quantity, int orderid);
+    }
 }

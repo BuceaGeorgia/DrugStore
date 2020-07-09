@@ -1,35 +1,30 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class ItemRepository:IItemRepository
+    public class ItemRepository : IItemRepository
     {
         string dbcon;
         public ItemRepository(string dbname) { dbcon = dbname; }
 
         public Item add(int drugid, int quantity, int orderid)
         {
-            
-                using (var v = new MyContext(dbcon))
-                {
 
-                    Item it = new Item();
-                    it.DrugID = drugid;
-                    it.OrderID = orderid;
-                    it.Quantity = quantity;
+            using (var v = new MyContext(dbcon))
+            {
 
-                    v.Items.Add(it);
-                    v.SaveChanges();
-                    return it;
+                Item it = new Item();
+                it.DrugID = drugid;
+                it.OrderID = orderid;
+                it.Quantity = quantity;
 
-                }
-                return null;
-            
+                v.Items.Add(it);
+                v.SaveChanges();
+                return it;
+
+            }
+            return null;
+
         }
     }
 }

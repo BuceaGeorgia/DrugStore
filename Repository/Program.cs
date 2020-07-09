@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Model;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 namespace Repository
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using(var db=new MyContext("farmacie2"))
+            using (var db = new MyContext("farmacie2"))
             {
-                Drug d = new Drug { Category = Category.vitamin, Description = "Pastile", Name = "Nurofen", Price =float.Parse("0.5") };
-                 User u = new User { Password="user",Username="user",Status=Status.Admin };
+                Drug d = new Drug { Category = Category.vitamin, Description = "Pastile", Name = "Nurofen", Price = float.Parse("0.5") };
+                User u = new User { Password = "user", Username = "user", Status = Status.Admin };
 
                 db.Drugs.Add(d);
                 db.SaveChanges();

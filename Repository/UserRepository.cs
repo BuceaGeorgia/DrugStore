@@ -1,17 +1,14 @@
-﻿using System;
+﻿using Model;
+using Repository.Utils;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
-using Repository.Utils;
 
 namespace Repository
 {
- public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private string dbcon;
-       public  UserRepository(string dbname) { dbcon = dbname; }
+        public UserRepository(string dbname) { dbcon = dbname; }
 
         public List<User> getall()
         {
@@ -27,9 +24,9 @@ namespace Repository
         public User findOne(string user, string password)
 
         {
-           
-            
-          using (var v=new MyContext(dbcon))
+
+
+            using (var v = new MyContext(dbcon))
             {
                 List<User> us = v.Users.Where(u => u.Username == user).ToList();
                 foreach (var el in us)
@@ -43,7 +40,7 @@ namespace Repository
 
         public User delete(string user, string password)
         {
-           
+
             using (var v = new MyContext(dbcon))
             {
                 User us = findOne(user, password);
@@ -59,7 +56,7 @@ namespace Repository
 
         }
 
-        public User add(string username,string password,Status st,int section)
+        public User add(string username, string password, Status st, int section)
         {
 
             using (var v = new MyContext(dbcon))
@@ -80,7 +77,7 @@ namespace Repository
 
         }
 
-        public User update(int id,string username, string password, Status st)
+        public User update(int id, string username, string password, Status st)
         {
 
             using (var v = new MyContext(dbcon))

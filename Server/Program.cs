@@ -1,13 +1,9 @@
 ﻿using Repository;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server
 {
@@ -24,14 +20,14 @@ namespace Server
             TcpChannel channel = new TcpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(channel, false);
             //string con = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-           IUserRepository ar = new UserRepository("farmacie2");
+            IUserRepository ar = new UserRepository("farmacie2");
             IOrderRepository or = new OrderRepository("farmacie2");
             IDrugRepository dr = new DrugRepository("farmacie2");
             ItemRepository ir = new ItemRepository("farmacie2");
-            var serviceImpl = new ServerImplementation(ar,or,dr,ir);
-           
-            ar.add("admin", "admin", Model.Status.Admin,1);
-            ar.add("user5", "user5", Model.Status.Pharmacist,1);
+            var serviceImpl = new ServerImplementation(ar, or, dr, ir);
+
+            ar.add("admin", "admin", Model.Status.Admin, 1);
+            ar.add("user5", "user5", Model.Status.Pharmacist, 1);
             foreach (var el in serviceImpl.filterdrugs("Somn"))
                 Console.WriteLine(el.Description);
             //var server = new ChatServerImpl();

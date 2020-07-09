@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
     public enum Status
     {
-        MedicalStaff,Pharmacist,Admin
+        MedicalStaff, Pharmacist, Admin
     }
     [Serializable]
     public class User : INotifyPropertyChanged
     {
 
-       public  User() { }
+        public User() { }
         [Key]
-        public int  UserID{ get ; set; }
+        public int UserID { get; set; }
         [Required]
         public string Username { get; set; }
         [Required]

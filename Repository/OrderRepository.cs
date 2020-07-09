@@ -1,33 +1,31 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 
 namespace Repository
 {
-   public class OrderRepository : IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private string dbcon;
         public OrderRepository(string dbname) { dbcon = dbname; }
         public List<Order> getall()
         {
-           
+
             using (var v = new MyContext(dbcon))
             {
-                List<Order> dictionary = v.Orders.OrderByDescending(o=>o.Date).ToList();
-       
+                List<Order> dictionary = v.Orders.OrderByDescending(o => o.Date).ToList();
+
                 return dictionary;
             }
-            
+
         }
         public List<Order> filterMedicalStaff(int sectieid)
         {
 
             using (var v = new MyContext(dbcon))
             {
-                List<Order> dictionary = v.Orders.Where(x =>x.SectieID==sectieid).ToList();
+                List<Order> dictionary = v.Orders.Where(x => x.SectieID == sectieid).ToList();
 
                 return dictionary;
             }
@@ -39,16 +37,16 @@ namespace Repository
 
             using (var v = new MyContext(dbcon))
             {
-              
+
                 List<Order> dictionary = v.Orders.Where(x => x.Status == OrderStatus.delivered).ToList();
 
                 return dictionary;
             }
 
         }
-        public Order add(DateTime dt,int sectieId)
+        public Order add(DateTime dt, int sectieId)
         {
-           
+
             using (var v = new MyContext(dbcon))
             {
                 Order o = new Order();
@@ -65,7 +63,7 @@ namespace Repository
         {
             using (var v = new MyContext(dbcon))
             {
-                Order o=v.Orders.First(c => c.OrderID == idOrder);
+                Order o = v.Orders.First(c => c.OrderID == idOrder);
                 return o;
             }
             return null;

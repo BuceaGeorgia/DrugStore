@@ -1,10 +1,6 @@
 ﻿
 using Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server
 {
@@ -12,7 +8,7 @@ namespace Server
     {
         /*
          * Updates the data from controller with the new list when a new order is taken
-         */ 
+         */
         void UpdateData(List<Order> all);
 
         /*
