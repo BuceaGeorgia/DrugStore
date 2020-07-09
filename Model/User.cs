@@ -15,7 +15,7 @@ namespace Model
     [Serializable]
     public class User : INotifyPropertyChanged
     {
-        //this is a change
+
        public  User() { }
         [Key]
         public int  UserID{ get ; set; }
